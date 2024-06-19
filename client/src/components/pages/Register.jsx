@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import API_BASE_URL from '../../baseUrl'
+import API_BASE_URL from '../../baseUrl.js'
 
 const Register = () => {
 
@@ -12,8 +12,48 @@ const Register = () => {
   const [password, setPassword] = useState("")
   const [errorMsg, setErrorMsg] = useState('')
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return re.test(String(email).toLowerCase())
+  }
+
+  const validatePassword = (password) => {
+    const minLength = 6
+    const hasUpperCase = /[A-Z]/.test(password)
+    const hasNumber = /\d/.test(password)
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password)
+    return password.length >= minLength && hasUpperCase && hasNumber && hasSpecialChar
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // Client-side validation
+
+    let errors = []
+
+    if (!name) {
+      errors.push("Name is required")
+    }
+    if (!company) {
+      errors.push("Company name is required")
+    }
+    if (!email) {
+      errors.push("Email is required")
+    } else if (!validateEmail(email)) {
+      errors.push("Invalid email format")
+    }
+    if (!password) {
+      errors.push("Password is required")
+    } else if (!validatePassword(password)) {
+      errors.push("Password must be at least 6 characters long and include an uppercase letter, a number, and a special character")
+    }
+
+    if (errors.length > 0) {
+      setErrorMsg(errors.map((err, index) => <div key={index} className="error-message">{err}</div>))
+      return
+    }
+
     axios.post(`${API_BASE_URL}auth/register`, {
       name, company, email, password
     })
@@ -34,6 +74,7 @@ const Register = () => {
           setErrorMsg([<div key="connectionError" className="error-message">Failed to connect to API</div>]);
         }
       });
+
   }
   return (
 
