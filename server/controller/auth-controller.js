@@ -82,7 +82,7 @@ export const login = (req, res, next) => {
                         });
                     }
                     return res.status(401).json({
-                        msg: 'Username or password is incorrect!'
+                        msg: 'Email or password is incorrect!'
                     });
                 }
             );
