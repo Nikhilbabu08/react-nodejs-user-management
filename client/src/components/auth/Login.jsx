@@ -83,7 +83,7 @@ const Login = () => {
 
         <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style={{ background: '#103cbe' }}>
           <div className="featured-image mb-3">
-            <img src='https://img.freepik.com/free-vector/authentication-concept-illustration_114360-2168.jpg?t=st=1718775788~exp=1718779388~hmac=bfe030eafb52fa25acdbf2468eec01e02b87537120f8beb3e5f3f1fcd473de07&w=740' className="img-fluid" style={{ width: '250px' }} alt="Featured" />
+            <img src='https://img.freepik.com/free-vector/authentication-concept-illustration_114360-2168.jpg?t=st=1718775788~exp=1718779388~hmac=bfe030eafb52fa25acdbf2468eec01e02b87537120f8beb3e5f3f1fcd473de07&w=740' className="img-fluid" style={{ width: '200px' }} alt="Featured" />
           </div>
           <p className="text-white fs-2" style={{ fontFamily: "'Courier New', Courier, monospace", fontWeight: 600 }}>Be Verified</p>
           <small className="text-white text-wrap text-center" style={{ width: '17rem', fontFamily: "'Courier New', Courier, monospace" }}>
@@ -107,21 +107,12 @@ const Login = () => {
               ))}
 
               <div className="input-group mb-3">
-                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email address" autoComplete='' value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
-              <div className="input-group mb-2">
-                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <div className="input-group mb-3">
+                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" autoComplete='' value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
-              <div className="input-group mb-2 d-flex justify-content-between">
-                <div className="form-check">
-                  <input type="checkbox" className="form-check-input" id="formCheck" />
-                  <label htmlFor="formCheck" className="form-check-label text-secondary"><small>Remember Me</small></label>
-                </div>
-                <div className="forgot">
-                  <small><a href="#">Forgot Password?</a></small>
-                </div>
-              </div>
-              <div className="input-group mb-2">
+              <div className="input-group mb-3">
                 <button className="btn btn-lg btn-primary w-100 fs-6" type='submit'>Login</button>
               </div>
 

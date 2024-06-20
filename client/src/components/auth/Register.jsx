@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import API_BASE_URL from '../../baseUrl.js'
+import API_BASE_URL from '../../baseUrl'
+
 
 const Register = () => {
 
@@ -58,7 +59,6 @@ const Register = () => {
       name, company, email, password
     })
       .then((res) => {
-        console.log(res)
         setErrorMsg('')
         navigate('/login')
       }).then((res) => {
@@ -109,16 +109,16 @@ const Register = () => {
               ))}
 
               <div className="input-group mb-3">
-                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Username" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Username" autoComplete='' value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="input-group mb-3">
-                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Company name" value={company} onChange={(e) => setCompany(e.target.value)} />
+                <input type="text" className="form-control form-control-lg bg-light fs-6" placeholder="Company name" autoComplete='' value={company} onChange={(e) => setCompany(e.target.value)} />
               </div>
               <div className="input-group mb-3">
-                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className="form-control form-control-lg bg-light fs-6" placeholder="Email address" autoComplete='' value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="input-group mb-3">
-                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" className="form-control form-control-lg bg-light fs-6" placeholder="Password" autoComplete='' value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
               <div className="input-group mb-3">
                 <button className="btn btn-lg btn-primary w-100 fs-6" type='submit'>Register</button>
