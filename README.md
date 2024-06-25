@@ -1,4 +1,3 @@
-
 # Full Stack User Management Application
 
 This project is a full-stack application designed for user registration, login, and profile viewing. The application uses React for the front end, Node.js for the back end, and MySQL for data storage. 
@@ -39,8 +38,22 @@ npm install
 npm run dev
 ```
     
+# Deployment
+## Deploying on AWS
+- Create an AWS EC2 instance with the free tier.
+- SSH into the instance and install Node.js, npm, and MySQL.
+- Set up an MySQL on EC2 instance for MySQL database storage.
+- Clone the repository onto the server.
+- Set up the environment variables and database as described in the Installation section.
+- Start the backend server and ensure it's running.
+- Build the React app:
+```bash
+cd client
+npm run build
+```
+- Serve the React app by integrating it with the backend.
 # Usage
-- Open your browser and navigate to http://localhost:3000 to view the application.
+- Open your browser and navigate to http://ec2-3-27-76-107.ap-southeast-2.compute.amazonaws.com to view the application.
 - Use the registration page to create a new account.
 - Log in using your credentials.
 - View your profile & All users list.
