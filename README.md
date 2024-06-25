@@ -1,6 +1,6 @@
 # Full Stack User Management Application
 
-This project is a full-stack application designed for user registration, login, and profile viewing. The application uses React for the front end, Node.js for the back end, and MySQL for data storage. 
+This project is a full-stack Saas application designed for user registration, login, and profile viewing. The application uses React for the front end, Node.js for the back end, and MySQL for data storage. 
 
 
 ## Features
